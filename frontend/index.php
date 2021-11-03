@@ -1,5 +1,9 @@
 <script type="text/javascript" src="js/dynamic.js"></script>
 <link rel="stylesheet" href="css/styles.css" type="text/css">
+<link rel="apple-touch-icon" sizes="180x180" href="misc/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="misc/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="misc/favicon-16x16.png">
+<link rel="manifest" href="misc/site.webmanifest">
 <?php 
 require 'config.php';
 
@@ -9,13 +13,13 @@ include 'php/booksList.php';
 echo '<H2>Book Editor</H1>';
 echo '<form>';
 echo ' <div id="fields">';
-echo '  <input type="hidden" id="fid" name="fid">';
-echo '  <label for="ftitle">Title:</label><br>';
-echo '  <input type="text" id="ftitle" name="ftitle"><br>';
-echo '  <label for="lauthor">Author:</label><br>';
-echo '  <input type="text" id="lauthor" name="lauthor"><br>';
-echo '  <label for="ldescription">Description:</label><br>';
-echo '  <textarea id="ldescription" name="ldescription" cols="40" rows="5"></textarea><br>';
+echo '  <input type="hidden" id="id" name="id">';
+echo '  <label for="title">Title:</label><br>';
+echo '  <input type="text" id="title" name="title"><br>';
+echo '  <label for="author">Author:</label><br>';
+echo '  <input type="text" id="author" name="author"><br>';
+echo '  <label for="description">Description:</label><br>';
+echo '  <textarea id="description" name="description" cols="40" rows="5"></textarea><br>';
 echo ' </div>';
 echo ' <div id="buttons">';
 echo '  <input type="button" id="lsave" name="lsave" value="Save">';

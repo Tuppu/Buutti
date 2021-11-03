@@ -18,18 +18,20 @@ if (count($books->books)) {
 echo '<H2>List of the Books</H1>';
 echo '<table id="books">';
 echo '  <tr>';
+echo '    <th style="display:none">Second Title</th>';
 echo '    <th>Title</th>';
 echo '    <th>Author</th>';
 echo '  </tr>';
         // Cycle through the array
         foreach ($books->books as $book) {
             // Output a row
-            echo "<tr>";
+            echo '<tr>';
+			echo "<td style=\"display:none\">$book->id</td>";
             echo "<td>$book->name</td>";
             echo "<td>$book->author</td>";
-            echo "</tr>";
+            echo '</tr>';
         }
 
         // Close the table
-        echo "</table>";
+        echo '</table>';
     }

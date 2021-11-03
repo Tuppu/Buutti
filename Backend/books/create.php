@@ -16,13 +16,12 @@ $books = new books($db);
 $data = json_decode(file_get_contents("php://input"));
 
 if(!empty($data->name) && !empty($data->description) &&
-!empty($data->price) && !empty($data->category_id) &&
-!empty($data->created)){    
+!empty($data->author)){    
 
     $books->name = $data->name;
+	$books->author = $data->author;
     $books->description = $data->description;
-    $books->author = $data->author;
-    $books->created = date('Y-m-d H:i:s'); 
+    $books->created = date('Y-m-d H:i:s');
     
     if($books->create()){         
         http_response_code(201);         

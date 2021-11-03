@@ -22,9 +22,9 @@ echo '  <label for="description">Description:</label><br>';
 echo '  <textarea id="description" name="description" cols="40" rows="5"></textarea><br>';
 echo ' </div>';
 echo ' <div id="buttons">';
-echo '  <input type="button" id="lsave" name="lsave" value="Save">';
-echo '  <input type="button" value="Save New">';
-echo '  <input type="button" value="Delete">';
+echo '  <input type="button" onclick="saveBookByID()" id="lsave" name="lsave" value="Save">';
+echo '  <input type="button" onclick="saveBookAsNew()" value="Save New">';
+echo '  <input type="button" onclick="deleteBookByID()" value="Delete">';
 echo ' </div>';
 echo '</form>';
 

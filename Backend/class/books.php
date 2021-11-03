@@ -37,8 +37,7 @@ class books{
 		$this->description = htmlspecialchars(strip_tags($this->description));
 		$this->created = htmlspecialchars(strip_tags($this->created));
 		
-		
-		$stmt->bind_param("ssiis", $this->name, $this->author, $this->description, $this->price, $this->category_id, $this->created);
+		$stmt->bind_param("ssss", $this->name, $this->author, $this->description, $this->created);
 		
 		if($stmt->execute()){
 			return true;
@@ -60,7 +59,7 @@ class books{
 		$this->description = htmlspecialchars(strip_tags($this->description));
 		$this->created = htmlspecialchars(strip_tags($this->created));
 	 
-		$stmt->bind_param("ssiisi", $this->name, $this->author, $this->description, $this->created, $this->id);
+		$stmt->bind_param("sssii", $this->name, $this->author, $this->description, $this->created, $this->id);
 		
 		if($stmt->execute()){
 			return true;

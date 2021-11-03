@@ -1,22 +1,46 @@
+<script type="text/javascript" src="js/dynamic.js"></script>
+<link rel="stylesheet" href="css/styles.css" type="text/css">
 <?php 
 
 echo '<H1>Buutti Back End REST API example</H1>';
 
+$url = 'http://localhost/backend/books/read';
+$data = array('key1' => 'value1', 'key2' => 'value2');
+
+// use key 'http' even if you send the request to https://...
+$options = array(
+    'http' => array(
+        'header'  => "Content-type: application/x-www-form-urlencoded\r\n",
+        'method'  => 'POST'
+    )
+);
+$context  = stream_context_create($options);
+$result = file_get_contents($url, false, $context);
+$books = json_decode($result);
+if ($result === FALSE) { /* Handle error */ }
+
+//var_dump($books->books);
+
+if (count($books->books)) {
+        // Open the table
 echo '<H2>List of the Books</H1>';
 echo '<table id="books">';
 echo '  <tr>';
 echo '    <th>Title</th>';
 echo '    <th>Author</th>';
 echo '  </tr>';
-echo '  <tr>';
-echo '    <td>title1</td>';
-echo '    <td>author1</td>';
-echo '  </tr>';
-echo '  <tr>';
-echo '    <td>title2</td>';
-echo '    <td>author2</td>';
-echo '  </tr>';
-echo '</table>';
+        // Cycle through the array
+        foreach ($books->books as $book) {
+            // Output a row
+            echo "<tr>";
+            echo "<td>$book->name</td>";
+            echo "<td>$book->author</td>";
+            echo "</tr>";
+        }
+
+        // Close the table
+        echo "</table>";
+    }
 
 echo '<H2>Book Editor</H1>';
 echo '<form>';

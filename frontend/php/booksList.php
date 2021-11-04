@@ -21,15 +21,15 @@ echo '  <tr>';
 echo '    <th>Title</th>';
 echo '    <th>Author</th>';
 echo '  </tr>';
-        // Cycle through the array
-        foreach ($books->books as $book) {
-            // Output a row
-            echo "<tr onclick=\"selectBookByID($book->id)\">";
-            echo "<td>$book->name</td>";
-            echo "<td>$book->author</td>";
-            echo '</tr>';
-        }
+	// Cycle through the array
+	foreach ($books->books as $book) {
+		// Output a row
+		echo "<tr onclick=\"selectBookByID($book->id)\">";
+		echo "<td>$book->name</td>";
+		echo "<td>$book->author</td>";
+		echo '</tr>';
+	}
 
-        // Close the table
-        echo '</table>';
-    }
+	// Close the table
+	echo '</table>';
+}

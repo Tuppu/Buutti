@@ -71,6 +71,7 @@ function saveBookByID() {
 	postJSON('http://localhost/backend/books/update', bookJson);
 	location.reload();
 };
+
 function deleteBookByID() {
 	const bookData = { id: document.getElementById('id').value };
 	var bookJson = JSON.stringify(bookData);
@@ -78,6 +79,7 @@ function deleteBookByID() {
 	postJSON('http://localhost/backend/books/delete', bookJson);
 	location.reload();
 };
+
 function saveBookAsNew() {
 	
 	const bookData = { name: document.getElementById('title').value,
@@ -88,3 +90,29 @@ function saveBookAsNew() {
 	postJSON('http://localhost/backend/books/create', bookJson);
 	location.reload();
 };
+
+window.onbeforeunload = function() {
+	
+	var id = document.getElementById('id').value;
+	var title = document.getElementById('title').value;
+	var author = document.getElementById('author').value;
+	var description = document.getElementById('description').value;
+	
+    localStorage.setItem("id", id);
+	localStorage.setItem("title", title);
+	localStorage.setItem("author", author);
+	localStorage.setItem("description", description);
+}
+
+window.onload = function() {
+
+	var id = localStorage.getItem("id");
+    var title = localStorage.getItem("title");
+	var author = localStorage.getItem("author");
+    var description = localStorage.getItem("description");
+	
+    if (id !== null) document.getElementById('id').value = id;
+	if (title !== null) document.getElementById('title').value = title;
+	if (author !== null) document.getElementById('author').value = author;
+	if (description !== null) document.getElementById('description').value = description;
+}

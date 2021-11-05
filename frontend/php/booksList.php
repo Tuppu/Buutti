@@ -11,16 +11,18 @@ $options = array(
 $context  = stream_context_create($options);
 $result = file_get_contents($url . 'backend/books/read', false, $context);
 $books = json_decode($result);
-if ($result === FALSE) { /* Handle error */ }
+if ($result === FALSE) {
+	echo '<p style="color:red">ERROR: Could not parse books</p>';
+}
 
 if (count($books->books)) {
         // Open the table
-echo '<H2>List of the Books</H1>';
-echo '<table id="books">';
-echo '  <tr>';
-echo '    <th>Title</th>';
-echo '    <th>Author</th>';
-echo '  </tr>';
+	echo '<H2>List of the Books</H1>';
+	echo '<table id="books">';
+	echo '  <tr>';
+	echo '    <th>Title</th>';
+	echo '    <th>Author</th>';
+	echo '  </tr>';
 	// Cycle through the array
 	foreach ($books->books as $book) {
 		// Output a row

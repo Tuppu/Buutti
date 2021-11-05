@@ -27,6 +27,8 @@ var postJSON = function(url, postJson) {
 		if (xhr.readyState === 4 && xhr.status === 200) {
 			var responseJson = JSON.parse(xhr.responseText);
 			return responseJson;
+		} else {
+		  alert('Error ' + xhr.status);
 		}
 	};
 	xhr.send(postJson);
@@ -40,6 +42,8 @@ var deleteJSON = function(url, deleteJson) {
 		if (xhr.readyState === 4 && xhr.status === 200) {
 			var responseJson = JSON.parse(xhr.responseText);
 			return responseJson;
+		} else {
+		  alert('Error ' + xhr.status);
 		}
 	};
 	xhr.send(deleteJson);

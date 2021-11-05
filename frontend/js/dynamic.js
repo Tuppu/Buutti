@@ -1,3 +1,6 @@
+var base_url = window.location.origin;
+var backend_url = base_url + '/backend';
+
 window.onload = () => {
 }
 
@@ -43,7 +46,7 @@ var deleteJSON = function(url, deleteJson) {
 };
 
 function selectBookByID(id) {
-	getJSON('http://localhost/backend/books/read?id=' + id,
+	getJSON(backend_url + '/books/read?id=' + id,
 	function(err, data) {
 	  if (err !== null) {
 		alert('Something went wrong: ' + err);
@@ -68,7 +71,7 @@ function saveBookByID() {
 	
 	var bookJson = JSON.stringify(bookData);
 	
-	postJSON('http://localhost/backend/books/update', bookJson);
+	postJSON(backend_url + '/books/update', bookJson);
 	location.reload();
 };
 
@@ -76,7 +79,13 @@ function deleteBookByID() {
 	const bookData = { id: document.getElementById('id').value };
 	var bookJson = JSON.stringify(bookData);
 	
-	postJSON('http://localhost/backend/books/delete', bookJson);
+	postJSON(backend_url + '/books/delete', bookJson);
+	
+	document.getElementById('id').value = '';
+	document.getElementById('title').value = '';
+	document.getElementById('author').value = '';
+	document.getElementById('description').value = '';
+	
 	location.reload();
 };
 
@@ -87,7 +96,7 @@ function saveBookAsNew() {
 		description: document.getElementById('description').value };
 	
 	var bookJson = JSON.stringify(bookData);
-	postJSON('http://localhost/backend/books/create', bookJson);
+	postJSON(backend_url + '/books/create', bookJson);
 	location.reload();
 };
 
